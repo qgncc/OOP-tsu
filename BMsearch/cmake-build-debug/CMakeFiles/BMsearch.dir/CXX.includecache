@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/erabbit/CLionProjects/BMsearch/main.cpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+cstdio
+-
+
