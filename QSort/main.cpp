@@ -2,7 +2,7 @@
 #include<time.h>
 using namespace std;
 
-void QSort(int* arr, int b, int t);
+void QSort(int* arr, int b, int r);
 int QSortSplit(int* arr, int b , int t);
 void printArray(int* arr, int n);
 void enterArray(int* arr, int n);
@@ -30,23 +30,44 @@ int main()
     return 0;
 }
 
-void QSort(int* arr, int b, int t){
-    if (b < t){
-        int border = QSortSplit(arr,b,t);
-        QSort(arr, b, border);
-        QSort(arr, border+1, t);
+void QSort(int* arr, int l, int r){
+
+    int* stack = new int[r - l + 1];
+    int top = -1;
+
+    stack[++top] = l;
+    stack[++top] = r;
+
+    while (top >= 0) {
+        r = stack[top--];
+        l = stack[top--];
+
+        int p = QSortSplit(arr, l, r);
+
+        if (p - 1 > l) {
+            stack[++top] = l;
+            stack[++top] = p - 1;
+        }
+
+        if (p + 1 < r) {
+            stack[++top] = p + 1;
+            stack[++top] = r;
+        }
     }
 }
-int QSortSplit(int* arr, int b , int t){
-    int p = arr[(b+t)/2];
-    int i = b; int j = t;
+int QSortSplit(int arr[], int l, int h)
+{
+    int x = arr[h];
+    int i = (l - 1);
 
-    while (true){
-        while(arr[i] < p ){
-            i++
+    for (int j = l; j <= h - 1; j++) {
+        if (arr[j] <= x) {
+            i++;
+            swap(arr[i], arr[j]);
         }
-        while ()
     }
+    swap(arr[i + 1], arr[h]);
+    return (i + 1);
 }
 
 void printArray(int* arr, int n)
