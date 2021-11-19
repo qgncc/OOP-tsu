@@ -1,0 +1,3 @@
+/home/erabbit/CLionProjects/QSortR/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/erabbit/CLionProjects/QSortR/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/erabbit/CLionProjects/QSortR/cmake-build-debug/CMakeFiles/QSortR.dir
